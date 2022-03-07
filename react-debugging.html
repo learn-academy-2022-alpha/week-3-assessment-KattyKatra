@@ -61,10 +61,10 @@
             padding: "10px"
           }
           // No need to change anything ABOVE this line ^
-
+          <>
           return(
               <h1>Draw a Card</h1>
-              <button onClick={}>
+              <button onClick={drawCard}>
                 Click to Draw a Card
               </button>
               <button onClick={shuffle}>
@@ -82,10 +82,10 @@
           )
         }
       }
-
+      </>
       // No need to change anything below this line
       const domContainer = document.querySelector('#react-container')
-      ReactDOM.render(<App />, domContainer)
+      ReactDOM.render(<App />, domContainer) //Im getting an error from line 88.5 that is preventing things in chrome do to a babel error
     </script>
   </body>
 </html>
