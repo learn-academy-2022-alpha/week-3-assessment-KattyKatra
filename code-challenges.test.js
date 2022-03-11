@@ -19,12 +19,12 @@
 
 // a) Create a test with expect statements for each of the variables provided.
 
-// describe("fibSeq", (num) => {
-//   it("returns an array numbers the same length as input", () => {
-//     expect(fibSeq(6)).toEqual([1,1,2,3,5,8])
-//     expect(fibSeq(10)).toEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
-//   })
-// })
+describe("fibSeq", (num) => {
+  it("returns an array numbers the same length as input", () => {
+    expect(fibSeq(6)).toEqual([1,1,2,3,5,8])
+    expect(fibSeq(10)).toEqual([1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
+  })
+})
 
 // Example input: 6
 // Expected output: [1, 1, 2, 3, 5, 8]
@@ -35,17 +35,18 @@
 
 // b) Create the function that makes the test pass.
 
-// var fib = []
-// var i
-//
-// fib[0] = 0
-// fib[1] = 1
-// const fibSeq = (num) => {
-//   for (var i = 0; i < num; i++) {
-//     fib[i] = fib[i - 2] + fib[i - 1]
-//     console.log(fibSeq[i])
-//   }
-// }
+var fib = []
+var i
+
+fib[0] = 0
+fib[1] = 1
+const fibSeq = (num) => {
+  for (var i = 2; i < num; i++) {
+    fib[i] = fib[i - 2] + fib[i - 1]
+    fib.push(fibSeq)
+  }
+  return fib
+}
 
 //I'm slowly getting the hang of testing, but recieving an error for undefined
 
@@ -58,12 +59,12 @@
 //Numbers are rearranged from lowest to greatest
 //Outputs new array
 
-// describe("greatestOdds", (array) => {
-//   it("returns a new array of only odd numbers sorted from lowest to greatest", () => {
-//     expect(greatestOdds(fullArr1)).toEqual([-9, 7, 9, 199])
-//     expect(greatestOdds(fullArr2)).toEqual([-823, 7, 23])
-//   })
-// })
+describe("greatestOdds", (array) => {
+  it("returns a new array of only odd numbers sorted from lowest to greatest", () => {
+    expect(greatestOdds(fullArr1)).toEqual([-9, 7, 9, 199])
+    expect(greatestOdds(fullArr2)).toEqual([-823, 7, 23])
+  })
+})
 
 const fullArr1 = [4, 9, 0, "7", 8, true, "hey", 7, 199, -9, false, "hola"]
 // Expected output: [-9, 7, 9, 199]
@@ -74,10 +75,10 @@ const fullArr2 = ["hello", 7, 23, -823, false, 78, null, "67", 6, "number"]
 
 // b) Create the function that makes the test pass.
 
-// const greatestOdds = (array) => {
-//   return oddArray = array.filter(value => value %3 === 0)
-//   return oddArray.sort(function(a, b){return b - a})
-// }
+const greatestOdds = (array) => {
+  return oddArray = array.filter(value => value %2 !== 0)
+  return oddArray.sort(function(a, b){return b - a})
+}
 
 // I'm having a bit of issues with this one. I think it's mainly the filter that isn't right since it returns false as part of the array.
 
@@ -110,13 +111,13 @@ const numbersToAdd3 = []
 
 // b) Create the function that makes the test pass.
 
-function addSum(a) {
-    var result = [a[0]]
-    var last = a[0]
-    for (i = 1; i < a.length; i++) {
-        last = last + a[i]
+function addSum(array) {
+    var result = [array[0]]
+    var last = array[0]
+    for (i = 1; i < array.length; i++) {
+        last = last + array[i]
         result.push(last)
-    } if (a === undefined) {
+    } if (array === undefined) {
       return []
     }
     return result

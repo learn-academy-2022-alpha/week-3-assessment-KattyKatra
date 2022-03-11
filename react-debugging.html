@@ -64,28 +64,27 @@
           <>
           return(
               <h1>Draw a Card</h1>
-              <button onClick={drawCard}>
-                Click to Draw a Card
+              <button type="button" onClick={this.state.drawCard}>
+                "Click to Draw a Card"
               </button>
-              <button onClick={shuffle}>
-                Return Cards and Shuffle Deck
+              <button onClick={this.props.shuffle}>
+                "Return Cards and Shuffle Deck"
               </button>
-              <div style={handStyles}>
-                {this.state.hand.map((card, index) => {
-                  return (
-                    <div style={cardStyles} key={index}>
-                      {card}
+              <div style={this.state.handStyles}>
+                {this.hand.map((card, index) => {
+                  render (
+                    <div style={this.state.cardStyles} key={index}>
+                      {this.props.hand}
                     </div>
                   )
                 })}
               </div>
           )
         }
-      }
-      </>
+        </>
       // No need to change anything below this line
       const domContainer = document.querySelector('#react-container')
-      ReactDOM.render(<App />, domContainer) //Im getting an error from line 88.5 that is preventing things in chrome do to a babel error
+      ReactDOM.render(<App />, domContainer)
     </script>
   </body>
 </html>
